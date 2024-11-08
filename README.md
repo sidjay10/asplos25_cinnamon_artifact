@@ -4,27 +4,12 @@
 ```
 docker pull sidjay10/asplos25_cinnamon_artifact:v1
 ```
-<!-- ## Step1: Build the container
-Download the tar of the [container](), unzip it and load it
-```
-gunzip asplos25_cinnamon_artifact.tar.gz
-docker load -i asplos25_cinnamon_artifact.tar
-```
-or alternatively, clone the repo and build the container
-```
-git clone https://
-cd asplos25_cinnamon_artifact
-git submodule up -->
-
-cd docker 
-docker build -t cinnamon_artifact:v1 .
-```
-The container image should have loaded as cinnamon_artifact:v1
 
 ## Step2: Run The Container
 In your working directory, make a sub directory `outputs` and mount it to the container. This directory is where the results of the simulations will be made available. If you don't mount the directory to the container, an error message will be displayed.
 ```
-mkdir outputs
+mkdir -p asplos25_cinnamon_artifact/outputs
+cd asplos25_cinnamon_artifact
 docker run --rm -it  -v $(pwd)/outputs:/cinnamon_artifact/outputs --name cinnamon_expt sidjay10/asplos25_cinnamon_artifact:v1
 ```
 
