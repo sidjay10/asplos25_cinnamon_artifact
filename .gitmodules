@@ -1,0 +1,6 @@
+[submodule "docker/simulator/sst-core"]
+	path = docker/simulator/sst-core
+	url = https://github.com/sstsimulator/sst-core.git
+[submodule "docker/simulator/sst-elements"]
+	path = docker/simulator/sst-elements
+	url = https://github.com/sstsimulator/sst-elements.git
