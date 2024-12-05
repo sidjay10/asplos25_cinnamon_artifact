@@ -20,17 +20,17 @@ docker exec -it cinnamon_expt ./build_cinnamon.sh
 ```
 This command builds the cinnamon element within SST. The rest of the SST simulator is prebuilt in the container image. This command should take about 5minutes.
 
-## Step4: Run the simulations for generating Figures 9 and 10
+## Step4: Run the simulations for generating Figures 
 ```
-docker exec -it cinnamon_expt ./run_fig9_10.sh
+docker exec -it cinnamon_expt ./run_keyswitch_comparison.sh
+docker exec -it cinnamon_expt ./run_bootstrap_comparison.sh
 ```
-This command should take about 20 minutes. When it completes it will produce fig9.pdf and fig10.pdf under the outputs folder
+These commands should take about 20 minutes. When it completes it will produce keyswitch\_comparison.pdf and bootstrap\_comparison.pdf under the outputs folder
 
-## Step5: Run the simulations for generating Figures 7, 8 and Table 2
 ```
-docker exec -it cinnamon_expt ./run_fig7_8.sh
+docker exec -it cinnamon_expt ./run_performance.sh
 ```
-This command should take about a day. This is because it runs the simulations for long running benchmarks. When it completes it will produce fig7.pdf and fig8.pdf and table2.txt under the outputs folder.
+This command should take about a day. This is because it runs the simulations for long running benchmarks. When it completes it will produce performance.pdf and performance\_per\_dollar.pdf and performance\_table.txt under the outputs folder.
 
 ## Step6: Stop the Container
 Stop the container once experiments are completed.
