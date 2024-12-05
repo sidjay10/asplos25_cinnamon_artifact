@@ -1,4 +1,4 @@
-# Cinnamon: A Scale-Out Framework for Encrypted Computing
+# Cinnamon: A Scale-Out Framework for Encrypted AI
 
 ## Step1: Pull the container image
 ```
@@ -10,30 +10,30 @@ In your working directory, make a sub directory `outputs` and mount it to the co
 ```
 mkdir -p asplos25_cinnamon_artifact/outputs
 cd asplos25_cinnamon_artifact
-docker run --rm -it  -v $(pwd)/outputs:/cinnamon_artifact/outputs --name cinnamon_expt sidjay10/asplos25_cinnamon_artifact:v1
+docker run --rm -it  -v $(pwd)/outputs:/cinnamon_artifact/outputs --name cinnamon sidjay10/asplos25_cinnamon_artifact:v1
 ```
 
 ## Step3: Build The Cinnamon Simulator
 In a separate terminal window, run
 ```
-docker exec -it cinnamon_expt ./build_cinnamon.sh
+docker exec -it cinnamon ./build_cinnamon.sh
 ```
 This command builds the cinnamon element within SST. The rest of the SST simulator is prebuilt in the container image. This command should take about 5minutes.
 
 ## Step4: Run the simulations for generating Figures 
 ```
-docker exec -it cinnamon_expt ./run_keyswitch_comparison.sh
-docker exec -it cinnamon_expt ./run_bootstrap_comparison.sh
+docker exec -it cinnamon ./run_keyswitch_comparison.sh
+docker exec -it cinnamon ./run_bootstrap_comparison.sh
 ```
 These commands should take about 20 minutes. When it completes it will produce keyswitch\_comparison.pdf and bootstrap\_comparison.pdf under the outputs folder
 
 ```
-docker exec -it cinnamon_expt ./run_performance.sh
+docker exec -it cinnamon ./run_performance.sh
 ```
 This command should take about a day. This is because it runs the simulations for long running benchmarks. When it completes it will produce performance.pdf and performance\_per\_dollar.pdf and performance\_table.txt under the outputs folder.
 
 ## Step6: Stop the Container
 Stop the container once experiments are completed.
 ```
-docker stop cinnamon_expt
+docker stop cinnamon
 ```
